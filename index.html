@@ -87,9 +87,7 @@
 </head>
 <body>
 
-    <!-- Landing Page Section -->
     <div id="landing-page">
-        <!-- Hero Section -->
         <header class="relative h-screen flex items-center justify-center text-center px-4 overflow-hidden">
             <div class="absolute inset-0 z-0 opacity-30">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-paper.png')]"></div>
@@ -106,7 +104,6 @@
                     揭開 2016 年權力交易的數字背後。誰在買單？誰在獲利？<br>我們邀請您進入這場關於代價與投報的華麗盛宴。
                 </p>
                 
-                <!-- Main CTA / Search Input -->
                 <div class="bg-stone-900/80 p-6 rounded-sm border border-[#c5a059]/30 shadow-2xl">
                     <div class="flex flex-col md:flex-row gap-4">
                         <input type="text" id="searchInput" placeholder="輸入政治人物姓名或政黨..." 
@@ -115,33 +112,68 @@
                             啟動儀式
                         </button>
                     </div>
-                    <div class="mt-4 text-xs text-stone-500 flex justify-center gap-4">
-                        <span>熱門搜尋：柯建銘、邱志偉、時代力量</span>
+                    
+                    <div class="mt-6 text-sm flex flex-wrap justify-center items-center gap-4 md:gap-6">
+                        <span class="uppercase tracking-widest text-[#c5a059] font-bold text-xs">快速探索：</span>
+                        
+                        <select onchange="if(this.value) { quickFilter(this.value); this.selectedIndex = 0; }" 
+                                class="bg-transparent border-b border-[#c5a059]/50 text-stone-300 pb-1 focus:outline-none focus:border-[#c5a059] cursor-pointer hover:text-[#c5a059] transition-colors">
+                            <option value="" class="bg-[#1a2f23] text-stone-400">📍 選擇縣市</option>
+                            <option value="臺北市" class="bg-[#1a2f23]">臺北市</option>
+                            <option value="新北市" class="bg-[#1a2f23]">新北市</option>
+                            <option value="桃園市" class="bg-[#1a2f23]">桃園市</option>
+                            <option value="臺中市" class="bg-[#1a2f23]">臺中市</option>
+                            <option value="臺南市" class="bg-[#1a2f23]">臺南市</option>
+                            <option value="高雄市" class="bg-[#1a2f23]">高雄市</option>
+                        </select>
+
+                        <select onchange="if(this.value) { quickFilter(this.value); this.selectedIndex = 0; }" 
+                                class="bg-transparent border-b border-[#c5a059]/50 text-stone-300 pb-1 focus:outline-none focus:border-[#c5a059] cursor-pointer hover:text-[#c5a059] transition-colors">
+                            <option value="" class="bg-[#1a2f23] text-stone-400">🏛️ 選擇政黨</option>
+                            <option value="民主進步黨" class="bg-[#1a2f23]">民主進步黨</option>
+                            <option value="中國國民黨" class="bg-[#1a2f23]">中國國民黨</option>
+                            <option value="時代力量" class="bg-[#1a2f23]">時代力量</option>
+                            <option value="親民黨" class="bg-[#1a2f23]">親民黨</option>
+                            <option value="無黨籍" class="bg-[#1a2f23]">無黨籍</option>
+                        </select>
+
+                        <select onchange="if(this.value) { quickFilter(this.value); this.selectedIndex = 0; }" 
+                                class="bg-transparent border-b border-[#c5a059]/50 text-stone-300 pb-1 focus:outline-none focus:border-[#c5a059] cursor-pointer hover:text-[#c5a059] transition-colors">
+                            <option value="" class="bg-[#1a2f23] text-stone-400">👤 熱門人物</option>
+                            <option value="柯建銘" class="bg-[#1a2f23]">柯建銘</option>
+                            <option value="邱志偉" class="bg-[#1a2f23]">邱志偉</option>
+                            <option value="王金平" class="bg-[#1a2f23]">王金平</option>
+                            <option value="黃國昌" class="bg-[#1a2f23]">黃國昌</option>
+                        </select>
+
+                        <select onchange="if(this.value) { document.getElementById('searchInput').value = ''; executeFilter(''); setSort(this.value); this.selectedIndex = 0; }" 
+                                class="bg-transparent border-b border-[#c5a059]/50 text-stone-300 pb-1 focus:outline-none focus:border-[#c5a059] cursor-pointer hover:text-[#c5a059] transition-colors">
+                            <option value="" class="bg-[#1a2f23] text-stone-400">📊 得票與指標排序</option>
+                            <option value="votes" class="bg-[#1a2f23]">依得票數最高</option>
+                            <option value="income" class="bg-[#1a2f23]">依總資金最高</option>
+                            <option value="corp" class="bg-[#1a2f23]">依企業捐贈最高</option>
+                        </select>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Editor's Picks -->
         <section class="py-24 px-4 max-w-6xl mx-auto">
             <h2 class="serif-title text-3xl text-center mb-16 gold-accent">
                 <span class="block text-sm tracking-[0.3em] text-stone-500 mb-2">CURATED INSIGHTS</span>
                 編輯精選案例
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pick 1 -->
                 <div class="card-inner p-8 cursor-pointer" onclick="quickFilter('柯建銘')">
                     <h3 class="text-xl font-bold mb-4">立院老將的吸金術</h3>
                     <p class="text-sm text-stone-400 leading-relaxed">分析柯建銘如何調動高達五千萬的政治資金，其中營利事業捐贈佔比過半，顯示其強大的政商網絡。</p>
                     <div class="mt-6 text-xs text-[#c5a059]">查看詳情 →</div>
                 </div>
-                <!-- Pick 2 -->
                 <div class="card-inner p-8 cursor-pointer" onclick="quickFilter('民主進步黨')">
                     <h3 class="text-xl font-bold mb-4">完全執政的推動力</h3>
                     <p class="text-sm text-stone-400 leading-relaxed">民進黨候選人在 2016 年的全面爆發，其背後的人民團體與企業支持如何重塑政治版圖？</p>
                     <div class="mt-6 text-xs text-[#c5a059]">查看詳情 →</div>
                 </div>
-                <!-- Pick 3 -->
                 <div class="card-inner p-8 cursor-pointer" onclick="quickFilter('企業')">
                     <h3 class="text-xl font-bold mb-4">企業投資的佈局</h3>
                     <p class="text-sm text-stone-400 leading-relaxed">哪些候選人獲得了最多的「營利事業」加持？金錢是否與委員會的職位分配有正相關？</p>
@@ -151,7 +183,6 @@
         </section>
     </div>
 
-    <!-- Results Page Section -->
     <div id="results-page" class="hidden-section min-h-screen">
         <nav class="p-6 border-b border-gold-accent/20 flex justify-between items-center bg-[#1a2f23]/90 sticky top-0 z-50">
             <h2 onclick="showLanding()" class="serif-title text-2xl gold-gradient-text cursor-pointer">The Altar 2016</h2>
@@ -162,13 +193,11 @@
         </nav>
 
         <main class="max-w-7xl mx-auto px-4 py-12">
-            <!-- Result Header -->
             <div id="result-summary" class="mb-12">
                 <h1 class="text-4xl serif-title mb-2">搜尋結果</h1>
                 <p id="stats-summary" class="text-stone-400 italic">正在檢索權力名冊...</p>
             </div>
 
-            <!-- Sorting & Tools -->
             <div class="flex flex-wrap justify-between items-end mb-8 border-b border-stone-800 pb-4">
                 <div class="flex gap-6 text-sm">
                     <button onclick="setSort('income')" class="hover:text-[#c5a059] transition-colors uppercase tracking-widest">總收入 排序</button>
@@ -178,12 +207,9 @@
                 <div class="text-xs text-stone-500" id="total-count">顯示 0 筆資料</div>
             </div>
 
-            <!-- Table/List -->
             <div id="results-list" class="grid grid-cols-1 gap-6">
-                <!-- Results will be injected here -->
-            </div>
+                </div>
 
-            <!-- Load More -->
             <div id="load-more-container" class="mt-16 text-center hidden">
                 <button onclick="loadMore()" class="border border-gold-accent px-8 py-3 text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-black transition-all">
                     加載更多名冊
@@ -192,7 +218,6 @@
         </main>
     </div>
 
-    <!-- Detail Modal (Simulated) -->
     <div id="modal" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center p-4">
         <div class="bg-stone-900 border border-gold-accent max-w-2xl w-full p-8 relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-2xl">&times;</button>
