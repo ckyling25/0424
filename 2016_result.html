@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>查詢結果</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="topbar">
+            <a href="2016.html" class="brand">The Altar</a>
+
+            <div class="search-inline">
+                <input id="q" placeholder="重新搜尋">
+                <button onclick="searchNow()">搜尋</button>
+            </div>
+        </header>
+
+        <section class="summary-box">
+            <h1>權力名冊</h1>
+            <p id="summary">載入中...</p>
+            <div id="quick" class="quick-grid"></div>
+        </section>
+
+        <section class="toolbar">
+            <select id="sort" onchange="render()">
+                <option value="income">總收入</option>
+                <option value="votes">得票數</option>
+                <option value="corp">企業捐贈</option>
+            </select>
+            <span id="count"></span>
+        </section>
+
+        <div id="list"></div>
+
+        <div class="center">
+            <button id="moreBtn" onclick="more()">載入更多</button>
+        </div>
+    </div>
+</body>
+</html>
